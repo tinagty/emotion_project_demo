@@ -5,16 +5,15 @@
         <h1>Abstract</h1>
         <div style="float:left">
           &nbsp Emotion:
-          <template>
             <el-select v-model="value" placeholder="请选择">
               <el-option
-                v-for="item in options"
+                v-for="item in options1"
                 :key="item.value"
                 :label="item.label"
                 :value="item.value">
               </el-option>
             </el-select>
-          </template>
+
         </div>
         <br/><br/><br/>
         <div>
@@ -29,33 +28,34 @@
           >
           </el-input>
         </div>
+
         <br/>
         <div class="bigBox">
           <div>
             <div style="float:left">Paragraph</div><br/><br/>
             <div style="float:left">Filter1:</div>
-            <template>
-              <el-select v-model="value" placeholder="请选择">
+
+              <el-select v-model="para_value" placeholder="请选择">
                 <el-option
-                  v-for="item in options"
-                  :key="item.value"
-                  :label="item.label"
-                  :value="item.value">
+                  v-for="item in paragraph_f1"
+                  :key="item.para_value"
+                  :label="item.para_label"
+                  :value="item.para_value">
                 </el-option>
               </el-select>
-            </template>
+
             <br/> <br/>
             <div style="float:left">Filter2:</div>
-            <template>
-              <el-select v-model="value" placeholder="请选择">
+
+              <el-select v-model="value3" placeholder="请选择">
                 <el-option
-                  v-for="item in options"
-                  :key="item.value"
-                  :label="item.label"
-                  :value="item.value">
+                  v-for="item in options3"
+                  :key="item.value3"
+                  :label="item.label3"
+                  :value="item.value3">
                 </el-option>
               </el-select>
-            </template>
+
           </div>
         </div>
         <el-button style="position:absolute;right:660px;bottom:23px" type="info">Generate</el-button>
@@ -95,6 +95,58 @@ export default {
     console.log(titleHeight);
     document.getElementById('title-list').style.height=titleHeight+'px';
     document.getElementById('right-list').style.height=titleHeight+'px';
+  },
+  data() {
+    return {
+      options1: [
+        {
+        value: '选项1',
+        label: '黄金糕'
+        },
+        {
+        value: '选项2',
+        label: '双皮奶'
+        },
+        {
+        value: '选项3',
+        label: '蚵仔煎'
+        }],
+
+      paragraph_f1: [
+        {
+        para_value: 'f1',
+        para_label: '黄'
+        },
+        {
+        para_value: 'f2',
+        para_label: '红'
+        },
+        {
+        para_value: 'f3',
+        para_label: '白'
+        }],
+
+      options3: [{
+        value3: '选项11',
+        label3: '快乐'
+      }, {
+        value3: '选项12',
+        label3: '伤心'
+      }, {
+        value3: '选项13',
+        label3: '愤怒'
+      }, {
+        value3: '选项14',
+        label3: '喜悦'
+      }, {
+        value3: '选项15',
+        label3: '郁闷'
+      }],
+
+      value: '',
+      para_value:'',
+      value3:''
+    }
   }
 }
 </script>
@@ -129,4 +181,3 @@ export default {
   border-right: 1px solid #C0CCDA;
 }
 </style>
-
