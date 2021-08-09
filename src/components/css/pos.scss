@@ -1,0 +1,82 @@
+.pos {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  .input-title {
+    margin-bottom: 4px;
+  }
+  .input-box{
+    margin-bottom: 8px;
+  }
+  .big-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 7px;
+  }
+  .biggest-title{
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  .left-container {
+    position: relative;
+    left: 0;
+    padding: 15px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: left;
+    align-items: flex-start;
+    height: 100vh;
+    width: 40vw;
+    background: #eee;
+    .input-line {
+      margin-bottom: 10px;
+    }
+    .big-box{
+      padding: 10px 0 0;
+      width: 38vw;
+      border-bottom: 1px solid #ccc;
+      border-top: 1px solid #ccc;
+    }
+    .el-textarea__inner {
+      width: 38vw;
+      height: 100px;
+    }
+    .generate-button {
+      position: absolute;
+      right: 32px;
+      bottom: 60px;
+    }
+  }
+  .right-container {
+    height: 100vh;
+    background: #ECF5F5;
+    width: 60vw;
+    padding:15px;
+    .confirm-button1{
+      position: absolute;
+      right: 28px;
+      top: 128px;
+    }
+    .confirm-button2{
+      position: absolute;
+      right: 108px;
+      top: 228px;
+    }
+    .confirm-box{
+      padding: 10px;
+      width: 56vw;
+      border: 1px solid #ccc;
+      height: 15vh;
+    }
+    .confirm-smallBox{
+      padding: 10px;
+      width: 25vw;
+      border: 1px solid #ccc;
+      height: 15vh;
+    }
+  }
+}
