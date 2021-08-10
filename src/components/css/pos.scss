@@ -9,7 +9,7 @@
     margin-bottom: 4px;
   }
   .input-box{
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }
   .big-title {
     font-size: 16px;
@@ -63,20 +63,37 @@
     }
     .confirm-button2{
       position: absolute;
-      right: 108px;
-      top: 228px;
+      right: 480px;
+      bottom: 220px;
+    }
+    .confirm-button3{
+      position: absolute;
+      right: 38px;
+      bottom: 220px;
     }
     .confirm-box{
-      padding: 10px;
+      padding: 12px;
       width: 56vw;
       border: 1px solid #ccc;
       height: 15vh;
     }
     .confirm-smallBox{
       padding: 10px;
-      width: 25vw;
+      width: 26vw;
       border: 1px solid #ccc;
-      height: 15vh;
+      height: 20vh;
+    }
+    .bottom-area{
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: left;
+      align-items: flex-start;
+      .left-area{
+        padding: 10px;
+      }
+      .right-area{
+        padding: 10px;
+      }
     }
   }
 }

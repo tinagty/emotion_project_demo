@@ -99,16 +99,31 @@
 
     <div class="right-container">
 <!--      {{something}}-->
-      <div class="input-title big-title">Paragraph</div>
-      <div class="confirm-box input-box">
-        <el-button type="info" class="confirm1-button">Confirm1</el-button>
+      <div class="input-box">
+        <div class="input-title big-title">Paragraph</div>
+        <div class="confirm-box input-box">
+          <el-button type="info" class="confirm-button1">Confirm1</el-button>
+        </div>
+        <div class="confirm-box"></div>
       </div>
-      <div class="confirm-box"></div>
-      <div class="input-title big-title">Image</div>
-      <div class="confirm-smallBox input-box">
-        <el-button type="info" class="confirm2-button">Confirm2</el-button>
+
+      <div class="bottom-area ">
+        <div class="left-area">
+          <div class="input-title big-title">Image</div>
+          <div class="confirm-smallBox input-box">
+            <el-button type="info" class="confirm-button2">Confirm2</el-button>
+          </div>
+          <div class="confirm-smallBox input-box"></div>
+        </div>
+        <div class="right-area">
+          <div class="input-title big-title">Music</div>
+          <div class="confirm-smallBox input-box">
+            <el-button type="info" class="confirm-button3">Confirm3</el-button>
+          </div>
+          <div class="confirm-smallBox input-box"></div>
+        </div>
       </div>
-      <div class="confirm-smallBox"></div>
+
     </div>
 
 
