@@ -407,16 +407,12 @@ export default {
     musicPause: function () {
       this.ifPaused = true ;
     },
-<<<<<<< HEAD
-    // showMusic: function(){
-    //   console.log("选中音乐");
-    // },
-=======
+
     chooseParagraph: function (para) {
       this.chosenParagraph = para
     }
 
->>>>>>> dev-xixiichan
+
       // load () {
     //   this.loading = true
     //   setTimeout(() => {
