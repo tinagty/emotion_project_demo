@@ -409,6 +409,7 @@ export default {
     chooseParagraph: function (para) {
       this.chosenParagraph = para
     }
+
       // load () {
     //   this.loading = true
     //   setTimeout(() => {
