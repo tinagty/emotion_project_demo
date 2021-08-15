@@ -246,6 +246,7 @@
   </div>
 </template>
 
+
 <script>
 export default {
   name: "pos",
@@ -404,6 +405,9 @@ export default {
     musicPause: function () {
       this.ifPaused = true ;
     },
+    // showMusic: function(){
+    //   console.log("选中音乐");
+    // },
       // load () {
     //   this.loading = true
     //   setTimeout(() => {
