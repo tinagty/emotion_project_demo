@@ -102,6 +102,7 @@
       <div class="input-box">
         <div class="input-title big-title">Paragraph</div>
         <div class="confirm-box input-box">
+          {{chosenParagraph}}
           <el-button type="info" class="confirm-button1">Confirm1</el-button>
         </div>
         <div class="confirm-box">
@@ -117,7 +118,7 @@
 <!--          </div>-->
           <div class="scroll-box">
             <ol>
-              <li v-for="para in paragraphs">{{para}}</li>
+              <li v-for="para in paragraphs" @click="chooseParagraph(para)" class="choose-pointer">{{para}}</li>
             </ol>
           </div>
         </div>
@@ -385,6 +386,7 @@ export default {
       imgValue2:'',
       musValue1:'',
       musValue2:'',
+      chosenParagraph: ''
       // something: '还没来数据'
     }
   },
@@ -404,6 +406,9 @@ export default {
     musicPause: function () {
       this.ifPaused = true ;
     },
+    chooseParagraph: function (para) {
+      this.chosenParagraph = para
+    }
       // load () {
     //   this.loading = true
     //   setTimeout(() => {
@@ -448,5 +453,8 @@ export default {
 }
 .title-style{
   border-right: 1px solid #C0CCDA;
+}
+.choose-pointer {
+  cursor: pointer;
 }
 </style>
