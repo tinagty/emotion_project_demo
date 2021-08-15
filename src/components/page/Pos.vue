@@ -104,26 +104,56 @@
         <div class="confirm-box input-box">
           <el-button type="info" class="confirm-button1">Confirm1</el-button>
         </div>
-        <div class="confirm-box"></div>
+        <div class="confirm-box">
+<!--          <div class="infinite-list-wrapper" style="overflow:auto">-->
+<!--            <ul-->
+<!--              class="list"-->
+<!--              v-infinite-scroll="load"-->
+<!--              infinite-scroll-disabled="disabled">-->
+<!--              <li v-for="i in count" class="list-item">{{ i }}</li>-->
+<!--            </ul>-->
+<!--            <p v-if="loading">加载中...</p>-->
+<!--            <p v-if="noMore">没有更多了</p>-->
+<!--          </div>-->
+          <div class="scroll-box">
+            <ol>
+              <li v-for="para in paragraphs">{{para}}</li>
+            </ol>
+          </div>
+        </div>
       </div>
-
       <div class="bottom-area ">
         <div class="left-area">
           <div class="input-title big-title">Image</div>
           <div class="confirm-smallBox input-box">
             <el-button type="info" class="confirm-button2">Confirm2</el-button>
           </div>
-          <div class="confirm-smallBox input-box"></div>
+          <div class="confirm-smallBox input-box">
+            <div class="img-style">
+              <img v-for="url in urls" :src="url" width="120px" height="120px" alt="picture">
+            </div>
+<!--            <div class="demo-image__lazy">-->
+<!--              <el-image v-for="url in urls" :key="url" :src="url" lazy></el-image>-->
+<!--            </div>-->
+          </div>
         </div>
         <div class="right-area">
           <div class="input-title big-title">Music</div>
           <div class="confirm-smallBox input-box">
             <el-button type="info" class="confirm-button3">Confirm3</el-button>
           </div>
-          <div class="confirm-smallBox input-box"></div>
+          <div class="confirm-smallBox input-box">
+            <div class="img-style">
+<!--              <audio src="url1" controls="controls"></audio>-->
+<!--                <source v-for="musicUrl in musicUrls" :src="musicUrl">-->
+<!--                <source :src="url1">-->
+<!--                <source :src="url2">-->
+<!--              <audio src="url2" controls="controls"></audio>-->
+              <audio v-for="musicUrl in musicUrls" @play="musicPlay" @pause="musicPause" controls :src="musicUrl"></audio>
+            </div>
+          </div>
         </div>
       </div>
-
     </div>
 
 
@@ -227,7 +257,34 @@ export default {
   },
   data() {
     return {
+      count: 10,
+      loading: false,
       textarea:'',
+      // url1:'https://www.ytmp3.cn/down/49366.mp3?v=15',
+      // url2:'https://www.ytmp3.cn/down/49366.mp3',
+      musicUrls: [
+        'https://www.ytmp3.cn/down/49366.mp3?v=15',
+        'https://www.ytmp3.cn/down/49366.mp3',
+        'https://www.ytmp3.cn/down/49366.mp3?v=15',
+        'https://www.ytmp3.cn/down/49366.mp3?v=15',
+      ],
+      urls: [
+        'https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg',
+        'https://fuss10.elemecdn.com/1/34/19aa98b1fcb2781c4fba33d850549jpeg.jpeg',
+        'https://fuss10.elemecdn.com/0/6f/e35ff375812e6b0020b6b4e8f9583jpeg.jpeg',
+        'https://fuss10.elemecdn.com/9/bb/e27858e973f5d7d3904835f46abbdjpeg.jpeg',
+        'https://fuss10.elemecdn.com/d/e6/c4d93a3805b3ce3f323f7974e6f78jpeg.jpeg',
+        'https://fuss10.elemecdn.com/3/28/bbf893f792f03a54408b3b7a7ebf0jpeg.jpeg',
+        'https://fuss10.elemecdn.com/2/11/6535bcfb26e4c79b48ddde44f4b6fjpeg.jpeg'
+      ],
+      paragraphs: [
+        '近一段时间，立陶宛政府不顾中方反复交涉、晓以利害，宣布允许台湾当局以“台湾”名义设立“代表处”。',
+        '此举公然违背中立两国建交公报精神，严重损害中国主权和领土完整。中国政府对此表示坚决反对，决定召回中国驻立陶宛大使，并要求立政府召回驻中国大使。',
+        '近一段时间，立陶宛政府不顾中方反复交涉、晓以利害，宣布允许台湾当局以“台湾”名义设立“代表处”。',
+        '此举公然违背中立两国建交公报精神，严重损害中国主权和领土完整。中国政府对此表示坚决反对，决定召回中国驻立陶宛大使，并要求立政府召回驻中国大使。',
+        '近一段时间，立陶宛政府不顾中方反复交涉、晓以利害，宣布允许台湾当局以“台湾”名义设立“代表处”。',
+        '此举公然违背中立两国建交公报精神，严重损害中国主权和领土完整。中国政府对此表示坚决反对，决定召回中国驻立陶宛大使，并要求立政府召回驻中国大使。',
+      ],
       emotion: [
         {
           value: '选项11',
@@ -331,11 +388,33 @@ export default {
       // something: '还没来数据'
     }
   },
-  // methods: {
+  // computed: {
+  //   noMore () {
+  //     return this.count >= 20
+  //   },
+  //   disabled () {
+  //     return this.loading || this.noMore
+  //   }
+  // },
+  methods: {
+    musicPlay: function () {
+      this.ifPlaying = true;
+      this.ifPaused = false;
+    },
+    musicPause: function () {
+      this.ifPaused = true ;
+    },
+      // load () {
+    //   this.loading = true
+    //   setTimeout(() => {
+    //     this.count += 2
+    //     this.loading = false
+    //   }, 2000)
+    // }
   //   handleGenerate() {//操作后進入該函數
   //      getList({ style: this.options1.value, }).then() //後台的style賦值
   //   }
-  // }
+  },
 }
 </script>
 

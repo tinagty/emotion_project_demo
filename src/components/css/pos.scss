@@ -56,6 +56,16 @@
     background: #ECF5F5;
     width: 60vw;
     padding:15px;
+    .img-style{
+      overflow: auto;
+      height: 20vh;
+      padding: 2px;
+    }
+    .scroll-box{
+       overflow: auto;
+       height: 15vh;
+       padding: 2px;
+     }
     .confirm-button1{
       position: absolute;
       right: 28px;
