@@ -118,7 +118,7 @@
 <!--          </div>-->
           <div class="scroll-box">
             <ol>
-              <li v-for="para in paragraphs" @click="chooseParagraph(para)" class="choose-pointer">{{para}}</li>
+              <li v-for="para in paragraphs" @click="chooseItem(1, para)" class="choose-pointer">{{para}}</li>
             </ol>
           </div>
         </div>
@@ -127,11 +127,14 @@
         <div class="left-area">
           <div class="input-title big-title">Image</div>
           <div class="confirm-smallBox input-box">
-            <el-button type="info" class="confirm-button2">Confirm2</el-button>
+            <div class="img-style">
+              <img :src="chosenImg" :class="`${chosenImg ? 'chosen-img' : 'no-chosen'}`" />
+            </div>
+            <el-button type="info" :class="confirm-button2">Confirm2</el-button>
           </div>
           <div class="confirm-smallBox input-box">
             <div class="img-style">
-              <img v-for="url in urls" :src="url" width="120px" height="120px" alt="picture">
+              <img v-for="url in urls" :src="url" width="120px" height="120px" alt="picture" @click="chooseItem(2, url)">
             </div>
 <!--            <div class="demo-image__lazy">-->
 <!--              <el-image v-for="url in urls" :key="url" :src="url" lazy></el-image>-->
@@ -386,7 +389,8 @@ export default {
       imgValue2:'',
       musValue1:'',
       musValue2:'',
-      chosenParagraph: ''
+      chosenParagraph: '',
+      chosenImg: ''
       // something: '还没来数据'
     }
   },
@@ -406,9 +410,10 @@ export default {
     musicPause: function () {
       this.ifPaused = true ;
     },
-    chooseParagraph: function (para) {
-      this.chosenParagraph = para
-    }
+    chooseItem: function (type, param) {
+      if (type === 1) this.chosenParagraph = param
+      if (type === 2) this.chosenImg = param
+    },
       // load () {
     //   this.loading = true
     //   setTimeout(() => {
