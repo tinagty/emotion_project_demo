@@ -5,6 +5,9 @@
   top: 0;
   bottom: 0;
   display: flex;
+  .choose-pointer {
+    cursor: pointer;
+  }
   .input-title {
     margin-bottom: 4px;
   }

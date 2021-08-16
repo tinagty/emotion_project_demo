@@ -127,11 +127,12 @@
         <div class="left-area">
           <div class="input-title big-title">Image</div>
           <div class="confirm-smallBox input-box">
+            {{chosenImage}}
             <el-button type="info" class="confirm-button2">Confirm2</el-button>
           </div>
           <div class="confirm-smallBox input-box">
             <div class="img-style">
-              <img v-for="url in urls" :src="url" width="120px" height="120px" alt="picture">
+              <img v-for="url in urls" :src="url" @click="chooseImage(url)" class="choose-pointer" width="120px" height="120px" alt="picture">
             </div>
 <!--            <div class="demo-image__lazy">-->
 <!--              <el-image v-for="url in urls" :key="url" :src="url" lazy></el-image>-->
@@ -246,7 +247,6 @@
 <!--    </el-row>-->
   </div>
 </template>
-
 
 <script>
 export default {
@@ -387,7 +387,8 @@ export default {
       imgValue2:'',
       musValue1:'',
       musValue2:'',
-      chosenParagraph: ''
+      chosenParagraph: '',
+      chosenImage: '',
       // something: '还没来数据'
     }
   },
@@ -407,12 +408,19 @@ export default {
     musicPause: function () {
       this.ifPaused = true ;
     },
-
     chooseParagraph: function (para) {
       this.chosenParagraph = para
+    },
+    chooseImage: function(url) {
+      // var obj= document.getElementById("img");
+      // obj.innerHTML="<img src='url'>";
+      // this.chosenImage = obj
+      // var imgHTML="<img src='url'>";
+      // $("div").append(imgHTML);
+      var img = document.getElementById("Image1"); //定义一个img对象
+      img.src = url ;
+      this.chosenImage = img;
     }
-
-
       // load () {
     //   this.loading = true
     //   setTimeout(() => {
@@ -436,29 +444,29 @@ export default {
 //  margin:12px;
 //  height:170px;
 //}
-.box2{
-  border:1px solid rgb(0,0,0);
-  padding:20px;
-  margin:20px;
-  height:75%;
-}
-.box1{
-  border:1px solid rgb(0,0,0);
-  padding:20px;
-  margin:20px;
-  height:25%;
-}
-.smallTitle{
-  float:left;
-  padding:10px;
-}
-.right-style{
-  border-right: 3px solid rgb(0,0,0);
-}
-.title-style{
-  border-right: 1px solid #C0CCDA;
-}
-.choose-pointer {
-  cursor: pointer;
-}
+//.box2{
+//  border:1px solid rgb(0,0,0);
+//  padding:20px;
+//  margin:20px;
+//  height:75%;
+//}
+//.box1{
+//  border:1px solid rgb(0,0,0);
+//  padding:20px;
+//  margin:20px;
+//  height:25%;
+//}
+//.smallTitle{
+//  float:left;
+//  padding:10px;
+//}
+//.right-style{
+//  border-right: 3px solid rgb(0,0,0);
+//}
+//.title-style{
+//  border-right: 1px solid #C0CCDA;
+//}
+//.choose-pointer {
+//  cursor: pointer;
+//}
 </style>
