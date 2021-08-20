@@ -94,7 +94,7 @@
           </div>
         </div>
       </div>
-      <el-button type="info" class="generate-button">Generate</el-button>
+      <el-button type="info" class="generate-button" @click="getGenerate()">Generate</el-button>
     </div>
 
     <div class="right-container">
@@ -250,6 +250,7 @@
 </template>
 
 <script>
+import { getGenerate } from '../../api/index'
 export default {
   name: "pos",
   mounted:function(){
@@ -415,6 +416,16 @@ export default {
       if (type === 2) this.chosenImg = param
       if (type === 3) this.chosenMusic = param
     },
+    getGenerate: function () {
+      getGenerate({ abs: this.textarea }).then(res => {
+        if (res.data && res.data.statusCode === 0) {
+          this.$message({
+            message: "success with —— "+res.data.data.data,
+            type: "success"
+          })
+        }
+      })
+    }
       // load () {
     //   this.loading = true
     //   setTimeout(() => {
