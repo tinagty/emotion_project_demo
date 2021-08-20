@@ -5,9 +5,6 @@
   top: 0;
   bottom: 0;
   display: flex;
-  .choose-pointer {
-    cursor: pointer;
-  }
   .input-title {
     margin-bottom: 4px;
   }
@@ -140,10 +137,10 @@
         bottom: 240px;
       }
       .confirm-button3{
-         position: absolute;
-         right: 33px;
-         bottom: 240px;
-       }
+        position: absolute;
+        right: 33px;
+        bottom: 240px;
+      }
     }
     .confirm-smallBox2{
       padding: 10px;

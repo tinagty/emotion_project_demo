@@ -94,11 +94,11 @@
           </div>
         </div>
       </div>
-      <el-button type="info" class="generate-button">Generate</el-button>
+      <el-button type="info" class="generate-button" @click="getGenerate()">Generate</el-button>
     </div>
 
     <div class="right-container">
-<!--      {{something}}-->
+      <!--      {{something}}-->
       <div class="input-box">
         <div class="input-title big-title">Paragraph</div>
         <div class="confirm-box input-box">
@@ -106,18 +106,18 @@
           <el-button type="info" class="confirm-button1">Confirm1</el-button>
         </div>
         <div class="confirm-box">
-<!--          <div class="infinite-list-wrapper" style="overflow:auto">-->
-<!--            <ul-->
-<!--              class="list"-->
-<!--              v-infinite-scroll="load"-->
-<!--              infinite-scroll-disabled="disabled">-->
-<!--              <li v-for="i in count" class="list-item">{{ i }}</li>-->
-<!--            </ul>-->
-<!--            <p v-if="loading">加载中...</p>-->
-<!--            <p v-if="noMore">没有更多了</p>-->
-<!--          </div>-->
+          <!--          <div class="infinite-list-wrapper" style="overflow:auto">-->
+          <!--            <ul-->
+          <!--              class="list"-->
+          <!--              v-infinite-scroll="load"-->
+          <!--              infinite-scroll-disabled="disabled">-->
+          <!--              <li v-for="i in count" class="list-item">{{ i }}</li>-->
+          <!--            </ul>-->
+          <!--            <p v-if="loading">加载中...</p>-->
+          <!--            <p v-if="noMore">没有更多了</p>-->
+          <!--          </div>-->
           <div class="scroll-box">
-              <div v-for="para in paragraphs" @click="chooseItem(1, para)" class="choose-pointer">{{para}}</div>
+            <div v-for="para in paragraphs" @click="chooseItem(1, para)" class="choose-pointer">{{para}}</div>
           </div>
         </div>
       </div>
@@ -134,9 +134,9 @@
             <div class="box-style">
               <img v-for="url in urls" :src="url" width="110px" height="110px" alt="picture" @click="chooseItem(2, url)" class="img-style"/>
             </div>
-<!--            <div class="demo-image__lazy">-->
-<!--              <el-image v-for="url in urls" :key="url" :src="url" lazy></el-image>-->
-<!--            </div>-->
+            <!--            <div class="demo-image__lazy">-->
+            <!--              <el-image v-for="url in urls" :key="url" :src="url" lazy></el-image>-->
+            <!--            </div>-->
           </div>
         </div>
         <div class="right-area">
@@ -158,98 +158,99 @@
         </div>
       </div>
     </div>
-      </div>
 
 
-<!--    <el-row>-->
-<!--      <el-col :span='8' class="right-style" id="right-list">-->
-<!--        <h1>Abstract</h1>-->
-<!--        <div style="float:left">-->
-<!--            Emotion:-->
-<!--            <el-select v-model="value" placeholder="请选择">-->
-<!--              <el-option-->
-<!--                v-for="item in options1"-->
-<!--                :key="item.value"-->
-<!--                :label="item.label"-->
-<!--                :value="item.value">-->
-<!--              </el-option>-->
-<!--            </el-select>-->
+  </div>
+  <!--    <el-row>-->
+  <!--      <el-col :span='8' class="right-style" id="right-list">-->
+  <!--        <h1>Abstract</h1>-->
+  <!--        <div style="float:left">-->
+  <!--            Emotion:-->
+  <!--            <el-select v-model="value" placeholder="请选择">-->
+  <!--              <el-option-->
+  <!--                v-for="item in options1"-->
+  <!--                :key="item.value"-->
+  <!--                :label="item.label"-->
+  <!--                :value="item.value">-->
+  <!--              </el-option>-->
+  <!--            </el-select>-->
 
-<!--        </div>-->
-<!--        <br/><br/><br/>-->
-<!--        <div>-->
-<!--          <div style="float:left">Abstract:</div>-->
-<!--          <br/>-->
-<!--          <el-input-->
-<!--            type="textarea"-->
-<!--            placeholder="请输入内容"-->
-<!--            v-model="textarea"-->
-<!--            maxlength="100"-->
-<!--            show-word-limit-->
-<!--          >-->
-<!--          </el-input>-->
-<!--        </div>-->
+  <!--        </div>-->
+  <!--        <br/><br/><br/>-->
+  <!--        <div>-->
+  <!--          <div style="float:left">Abstract:</div>-->
+  <!--          <br/>-->
+  <!--          <el-input-->
+  <!--            type="textarea"-->
+  <!--            placeholder="请输入内容"-->
+  <!--            v-model="textarea"-->
+  <!--            maxlength="100"-->
+  <!--            show-word-limit-->
+  <!--          >-->
+  <!--          </el-input>-->
+  <!--        </div>-->
 
-<!--        <br/>-->
-<!--        <div class="bigBox">-->
-<!--          <div>-->
-<!--            <div style="float:left">Paragraph</div><br/><br/>-->
-<!--            <div style="float:left">Filter1:</div>-->
+  <!--        <br/>-->
+  <!--        <div class="bigBox">-->
+  <!--          <div>-->
+  <!--            <div style="float:left">Paragraph</div><br/><br/>-->
+  <!--            <div style="float:left">Filter1:</div>-->
 
-<!--              <el-select v-model="para_value" placeholder="请选择">-->
-<!--                <el-option-->
-<!--                  v-for="item in paragraph_f1"-->
-<!--                  :key="item.para_value"-->
-<!--                  :label="item.para_label"-->
-<!--                  :value="item.para_value">-->
-<!--                </el-option>-->
-<!--              </el-select>-->
+  <!--              <el-select v-model="para_value" placeholder="请选择">-->
+  <!--                <el-option-->
+  <!--                  v-for="item in paragraph_f1"-->
+  <!--                  :key="item.para_value"-->
+  <!--                  :label="item.para_label"-->
+  <!--                  :value="item.para_value">-->
+  <!--                </el-option>-->
+  <!--              </el-select>-->
 
-<!--            <br/> <br/>-->
-<!--            <div style="float:left">Filter2:</div>-->
+  <!--            <br/> <br/>-->
+  <!--            <div style="float:left">Filter2:</div>-->
 
-<!--              <el-select v-model="value3" placeholder="请选择">-->
-<!--                <el-option-->
-<!--                  v-for="item in options3"-->
-<!--                  :key="item.value3"-->
-<!--                  :label="item.label3"-->
-<!--                  :value="item.value3">-->
-<!--                </el-option>-->
-<!--              </el-select>-->
+  <!--              <el-select v-model="value3" placeholder="请选择">-->
+  <!--                <el-option-->
+  <!--                  v-for="item in options3"-->
+  <!--                  :key="item.value3"-->
+  <!--                  :label="item.label3"-->
+  <!--                  :value="item.value3">-->
+  <!--                </el-option>-->
+  <!--              </el-select>-->
 
-<!--          </div>-->
-<!--        </div>-->
-<!--        <el-button style="position:absolute;right:660px;bottom:23px" type="info">Generate</el-button>-->
-<!--      </el-col>-->
-<!--      <el-col :span='16' class="title-style" id="title-list">-->
-<!--        <el-tabs>-->
-<!--          <el-tab-pane label="Paragraph">-->
-<!--            <div class="smallTitle">-->
-<!--              Paragraph-->
-<!--            </div>-->
-<!--            <br/><br/>-->
-<!--            <div class="box1">-->
-<!--              <el-button style="position:absolute;right:25px;top:142px" type="info">Confirm</el-button>-->
-<!--            </div><br/>-->
-<!--            <div class="box2">-->
+  <!--          </div>-->
+  <!--        </div>-->
+  <!--        <el-button style="position:absolute;right:660px;bottom:23px" type="info">Generate</el-button>-->
+  <!--      </el-col>-->
+  <!--      <el-col :span='16' class="title-style" id="title-list">-->
+  <!--        <el-tabs>-->
+  <!--          <el-tab-pane label="Paragraph">-->
+  <!--            <div class="smallTitle">-->
+  <!--              Paragraph-->
+  <!--            </div>-->
+  <!--            <br/><br/>-->
+  <!--            <div class="box1">-->
+  <!--              <el-button style="position:absolute;right:25px;top:142px" type="info">Confirm</el-button>-->
+  <!--            </div><br/>-->
+  <!--            <div class="box2">-->
 
-<!--            </div>-->
-<!--          </el-tab-pane>-->
-<!--          <el-tab-pane label="Image">-->
+  <!--            </div>-->
+  <!--          </el-tab-pane>-->
+  <!--          <el-tab-pane label="Image">-->
 
-<!--          </el-tab-pane>-->
-<!--          <el-tab-pane label="Music">-->
+  <!--          </el-tab-pane>-->
+  <!--          <el-tab-pane label="Music">-->
 
-<!--          </el-tab-pane>-->
-<!--        </el-tabs>-->
-<!--      </el-col>-->
+  <!--          </el-tab-pane>-->
+  <!--        </el-tabs>-->
+  <!--      </el-col>-->
 
 
-<!--    </el-row>-->
+  <!--    </el-row>-->
 
 </template>
 
 <script>
+import { getGenerate } from '../../api/index'
 export default {
   name: "pos",
   mounted:function(){
@@ -307,16 +308,16 @@ export default {
         }],
       paragraphF1: [
         {
-        value: '选项1',
-        label: '1-2个段落'
+          value: '选项1',
+          label: '1-2个段落'
         },
         {
-        value: '选项2',
-        label: '3-4个段落'
+          value: '选项2',
+          label: '3-4个段落'
         },
         {
-        value: '选项3',
-        label: '5个段落及以上'
+          value: '选项3',
+          label: '5个段落及以上'
         }],
       imageF1:[
         {
@@ -389,7 +390,6 @@ export default {
       musValue1:'',
       musValue2:'',
       chosenParagraph: '',
-      chosenImage: '',
       chosenImg: '',
       chosenMusic: '',
       // something: '还没来数据'
@@ -416,39 +416,32 @@ export default {
       if (type === 2) this.chosenImg = param
       if (type === 3) this.chosenMusic = param
     },
-    musicPause: function () {
-      this.ifPaused = true ;
-    },
-    chooseParagraph: function (para) {
-      this.chosenParagraph = para
-    },
-    chooseImage: function(url) {
-      // var obj= document.getElementById("img");
-      // obj.innerHTML="<img src='url'>";
-      // this.chosenImage = obj
-      // var imgHTML="<img src='url'>";
-      // $("div").append(imgHTML);
-      var img = document.getElementById("Image1"); //定义一个img对象
-      img.src = url ;
-      this.chosenImage = img;
+    getGenerate: function () {
+      getGenerate({ abs: this.textarea }).then(res => {
+        if (res.data && res.data.statusCode === 0) {
+          this.$message({
+            message: "success with —— "+res.data.data.data,
+            type: "success"
+          })
+        }
+      })
     }
-      // load () {
+    // load () {
     //   this.loading = true
     //   setTimeout(() => {
     //     this.count += 2
     //     this.loading = false
     //   }, 2000)
     // }
-  //   handleGenerate() {//操作后進入該函數
-  //      getList({ style: this.options1.value, }).then() //後台的style賦值
-  //   }
+    //   handleGenerate() {//操作后進入該函數
+    //      getList({ style: this.options1.value, }).then() //後台的style賦值
+    //   }
   },
 }
 </script>
 
 <style lang="scss">
 @import "../css/pos.scss";
-
 //.bigBox{
 //  border:1px solid rgb(0,0,0);
 //  padding:12px;
