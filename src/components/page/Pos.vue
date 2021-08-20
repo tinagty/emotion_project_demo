@@ -117,22 +117,22 @@
 <!--            <p v-if="noMore">没有更多了</p>-->
 <!--          </div>-->
           <div class="scroll-box">
-            <ol>
-              <li v-for="para in paragraphs" @click="chooseParagraph(para)" class="choose-pointer">{{para}}</li>
-            </ol>
+              <div v-for="para in paragraphs" @click="chooseItem(1, para)" class="choose-pointer">{{para}}</div>
           </div>
         </div>
       </div>
       <div class="bottom-area ">
         <div class="left-area">
           <div class="input-title big-title">Image</div>
-          <div class="confirm-smallBox input-box">
-            {{chosenImage}}
+          <div class="confirm-smallBox1 input-box">
+            <div>
+              <img :src="chosenImg" :class="`${chosenImg ? 'chosen-img' : 'no-chosen'}`" />
+            </div>
             <el-button type="info" class="confirm-button2">Confirm2</el-button>
           </div>
-          <div class="confirm-smallBox input-box">
-            <div class="img-style">
-              <img v-for="url in urls" :src="url" @click="chooseImage(url)" class="choose-pointer" width="120px" height="120px" alt="picture">
+          <div class="confirm-smallBox2 input-box">
+            <div class="box-style">
+              <img v-for="url in urls" :src="url" width="110px" height="110px" alt="picture" @click="chooseItem(2, url)" class="img-style"/>
             </div>
 <!--            <div class="demo-image__lazy">-->
 <!--              <el-image v-for="url in urls" :key="url" :src="url" lazy></el-image>-->
@@ -141,25 +141,26 @@
         </div>
         <div class="right-area">
           <div class="input-title big-title">Music</div>
-          <div class="confirm-smallBox input-box">
+          <div class="confirm-smallBox1 input-box">
+            <div>
+              <audio controls :src="chosenMusic"/>
+            </div>
             <el-button type="info" class="confirm-button3">Confirm3</el-button>
           </div>
-          <div class="confirm-smallBox input-box">
-            <div class="img-style">
-<!--              <audio src="url1" controls="controls"></audio>-->
-<!--                <source v-for="musicUrl in musicUrls" :src="musicUrl">-->
-<!--                <source :src="url1">-->
-<!--                <source :src="url2">-->
-<!--              <audio src="url2" controls="controls"></audio>-->
-              <audio v-for="musicUrl in musicUrls" @play="musicPlay" @pause="musicPause" controls :src="musicUrl"></audio>
+          <div class="confirm-smallBox2 input-box">
+            <div class="box-style">
+              <div class="music-style" v-for="musicUrl in musicUrls" >
+                <el-button type="info" class="choose-button" @click="chooseItem(3, musicUrl)">Choose</el-button>
+                <audio controls :src="musicUrl" class="music-show"/>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+      </div>
 
 
-    </div>
 <!--    <el-row>-->
 <!--      <el-col :span='8' class="right-style" id="right-list">-->
 <!--        <h1>Abstract</h1>-->
@@ -245,7 +246,7 @@
 
 
 <!--    </el-row>-->
-  </div>
+
 </template>
 
 <script>
@@ -389,6 +390,8 @@ export default {
       musValue2:'',
       chosenParagraph: '',
       chosenImage: '',
+      chosenImg: '',
+      chosenMusic: '',
       // something: '还没来数据'
     }
   },
@@ -401,9 +404,17 @@ export default {
   //   }
   // },
   methods: {
-    musicPlay: function () {
-      this.ifPlaying = true;
-      this.ifPaused = false;
+    // musicPlay: function () {
+    //   this.ifPlaying = true;
+    //   this.ifPaused = false;
+    // },
+    // musicPause: function () {
+    //   this.ifPaused = true ;
+    // },
+    chooseItem: function (type, param) {
+      if (type === 1) this.chosenParagraph = param
+      if (type === 2) this.chosenImg = param
+      if (type === 3) this.chosenMusic = param
     },
     musicPause: function () {
       this.ifPaused = true ;
